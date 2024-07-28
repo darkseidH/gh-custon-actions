@@ -69,6 +69,11 @@ jobs:
           path: ./dist
       - name: Output contents
         run: ls
+
+      - name: Install node dependencies
+        working-directory: ./.github/actions/deploy-s3-javascript
+        run: npm ci
+        
       - name: Deploy site
         uses: ./.github/actions/deploy-s3-javascript
         env:
